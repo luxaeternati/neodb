@@ -231,3 +231,29 @@ class AppleMusicTestCase(TestCase):
         self.assertIsInstance(site.resource.item, Album)
         self.assertEqual(site.resource.item.genre, ["Pop", "Music"])
         self.assertEqual(site.resource.item.duration, 2368000)
+
+
+class QobuzTestCase(TestCase):
+    databases = "__all__"
+
+    def test_parse(self):
+        t_id_type = IdType.Qobuz
+        t_id_value = "gwfvog5vfvsva"
+        t_url = "https://play.qobuz.com/album/gwfvog5vfvsva"
+        site = SiteManager.get_site_cls_by_id_type(t_id_type)
+        self.assertIsNotNone(site)
+        self.assertEqual(site.validate_url(t_url), True)
+        site = SiteManager.get_site_by_url(t_url)
+        self.assertEqual(site.url, t_url)
+        self.assertEqual(site.id_value, t_id_value)
+
+    @use_local_response
+    def test_scrape(self):
+        t_url = "https://open.spotify.com/album/65KwtzkJXw7oT819NFWmEP"
+        site = SiteManager.get_site_by_url(t_url)
+        self.assertEqual(site.ready, False)
+        site.get_resource_ready()
+        self.assertEqual(site.ready, True)
+        self.assertEqual(site.resource.metadata["title"], "Mozart: Complete Piano Trios")
+        self.assertIsInstance(site.resource.item, Album)
+        self.assertEqual(site.resource.item.barcode, "3830257451495")
