@@ -249,7 +249,7 @@ class QobuzTestCase(TestCase):
 
     @use_local_response
     def test_scrape(self):
-        t_url = "https://play.qobuz.com/album/65KwtzkJXw7oT819NFWmEP"
+        t_url = "https://play.qobuz.com/album/gwfvog5vfvsva"
         site = SiteManager.get_site_by_url(t_url)
         self.assertEqual(site.ready, False)
         site.get_resource_ready()
