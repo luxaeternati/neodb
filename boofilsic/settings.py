@@ -110,6 +110,9 @@ env = environ.FileAwareEnv(
     # IGDB - https://api-docs.igdb.com/
     IGDB_API_CLIENT_ID=(str, "TESTONLY"),
     IGDB_API_CLIENT_SECRET=(str, ""),
+    # Qobuz - see for example https://gist.github.com/vitiko98/bb89fd203d08e285d06abf40d96db592
+    QOBUZ_APP_ID=(str,"")
+    QOBUZ_AUTH_TOKEN=(str, ""),
     # Discord webhooks
     DISCORD_WEBHOOKS=(dict, {"user-report": None}),
     THREADS_APP_ID=(str, ""),
@@ -269,6 +272,8 @@ GOOGLE_API_KEY = env("GOOGLE_API_KEY")
 DISCOGS_API_KEY = env("DISCOGS_API_KEY")
 IGDB_CLIENT_ID = env("IGDB_API_CLIENT_ID")
 IGDB_CLIENT_SECRET = env("IGDB_API_CLIENT_SECRET")
+QOBUZ_APP_ID = env("QOBUZ_APP_ID")
+QOBUZ_AUTH_TOKEN = env("QOBUZ_AUTH_TOKEN")
 
 DOWNLOADER_PROXY_LIST = env("NEODB_DOWNLOADER_PROXY_LIST")
 DOWNLOADER_BACKUP_PROXY = env("NEODB_DOWNLOADER_BACKUP_PROXY", default="")  # type: ignore
