@@ -20,6 +20,7 @@ from .igdb import IGDB
 from .imdb import IMDB
 from .jjwxc import JJWXC
 from .qidian import Qidian
+from .qobuz import Qobuz
 from .rss import RSS
 from .spotify import Spotify
 from .steam import Steam
@@ -51,6 +52,7 @@ __all__ = [
     "IMDB",
     "JJWXC",
     "Qidian",
+    "Qobuz",
     "RSS",
     "Spotify",
     "Steam",
